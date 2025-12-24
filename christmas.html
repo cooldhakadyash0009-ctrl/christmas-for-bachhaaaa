@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Merry Christmas Bachhaaa ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: linear-gradient(#8b0000, #b11226);
+      color: #fff;
+      overflow-x: hidden;
+    }
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+      text-align: center;
+      transition: opacity 1s ease;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+    h2 {
+      font-weight: normal;
+      font-size: 1.4em;
+      max-width: 700px;
+    }
+    img {
+      max-width: 280px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+      margin: 25px 0;
+    }
+    button {
+      margin-top: 30px;
+      padding: 12px 26px;
+      border: none;
+      border-radius: 25px;
+      background: #ffd700;
+      color: #8b0000;
+      font-size: 1em;
+      cursor: pointer;
+    }
+    button:hover { opacity: 0.9; }
+    .hidden { display: none; }
+    .snow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      background-image: url('https://i.imgur.com/9QZ7K9F.png');
+      animation: snow 20s linear infinite;
+      opacity: 0.6;
+    }
+    @keyframes snow {
+      from { background-position: 0 0; }
+      to { background-position: 0 1000px; }
+    }
+  @keyframes floatUp{
+  0%{transform:translateY(0);opacity:1;}
+  100%{transform:translateY(-100vh);opacity:0;}
+}
+</style>
+</head>
+<body>
+<audio id="music" src="music.mp3" autoplay loop></audio>
+<div class="snow"></div>
+
+<div class="page hidden" id="p0">
+  <img src="her.jpg" style="border-radius:50%;max-width:200px" />
+  <h1>Bachhaaa ❤️</h1>
+  <h2>Is Christmas, yeh site sirf tumhare liye hai 🎄✨</h2>
+  <button onclick="next(0)">Start 💖</button>
+</div>
+
+<div class="page" id="p1">
+  <img id="slideshow" src="image1.jpg" style="max-width:80%;border-radius:20px" />
+  <script>
+    let slides=['image1.jpg','image2.jpg','image3.jpg'];
+    let idx=0;
+    setInterval(()=>{
+      idx=(idx+1)%slides.length;
+      document.getElementById('slideshow').src=slides[idx];
+    },2500);
+  </script>
+  <h1>Merry Christmas 🎄❤️</h1>
+  <h2>To my Bachhaaa,
+  <br>Ek chhoti si Christmas kahani… sirf humari ✨</h2>
+  <button onclick="next(1)">Open 💝</button>
+</div>
+
+<div class="page hidden" id="p2">
+  <img src="image1.jpg" />
+  <h2>"All I want for Christmas is you —
+  <br>sirf aaj nahi, har din, poori zindagi."</h2>
+  <button onclick="next(2)">Next ➡️</button>
+</div>
+
+<div class="page hidden" id="p3">
+  <img src="image2.jpg" />
+  <h2>Christmas magical hota hai…
+  <br>par tumse pyaar karna meri life ka
+  <b>sabse bada gift</b> hai ❤️</h2>
+  <button onclick="next(3)">Next ➡️</button>
+</div>
+
+<div class="page hidden" id="p4">
+  <img src="image3.jpg" />
+  <h2>Bachhaaa,
+  <br>tum meri Christmas miracle ho,
+  <br>aur meri forever wali happiness bhi 💞</h2>
+  <button onclick="next(4)">Next ➡️</button>
+</div>
+
+<div class="page hidden" id="p5">
+  <div id="gift" onclick="openGift()" style="font-size:80px;cursor:pointer">🎁</div>
+  <h2 id="giftText" class="hidden">Surprise Bachhaaa 💝<br>Yeh sirf ek gift nahi…<br>meri poori zindagi tumhare naam ❤️</h2>
+  <h2>This Christmas, main bahut cheezon ke liye grateful hoon…
+  <br>lekin sabse zyada <b>tumhare liye</b>
+  <br>aur humare pyaar ke liye ❤️</h2>
+  <button onclick="next(5)">Last Page 💖</button>
+</div>
+
+<div class="page hidden" id="p6">
+  <h1>One Last Thing… 💌</h1>
+  <h2 onclick="revealNote()" style="cursor:pointer">Tap here Bachhaaa ❤️</h2>
+  <p id="secret" class="hidden" style="max-width:600px;font-size:1.2em">Tum meri life ka sabse khoobsurat hissa ho.
+  <br>Har mushkil, har khushi — main hamesha tumhare saath hoon 💞</p>
+  <button onclick="next(6)">Next 💍</button>
+</div>
+
+<script>
+  function next(n) {
+    document.getElementById('p' + n).classList.add('hidden');
+    document.getElementById('p' + (n + 1)).classList.remove('hidden');
+  }
+  function openGift(){
+    document.getElementById('gift').style.display='none';
+    document.getElementById('giftText').classList.remove('hidden');
+  }
+  function revealNote(){document.getElementById('secret').classList.remove('hidden');}
+  function sayYes(){
+  document.getElementById('proposal').style.display='none';
+  document.getElementById('ring').classList.remove('hidden');
+  launchHearts();
+}
+
+function launchHearts(){
+  for(let i=0;i<40;i++){
+    let heart=document.createElement('div');
+    heart.innerHTML='❤️';
+    heart.style.position='fixed';
+    heart.style.left=Math.random()*100+'vw';
+    heart.style.bottom='0px';
+    heart.style.fontSize='24px';
+    heart.style.animation='floatUp 3s ease-out forwards';
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),3000);
+  }
+}
+  function sayNo(){alert('Hehe 😅 Bachhaaa, galat option dab gaya… YES try karo 💖');}
+
+function revealNote(){document.getElementById('secret').classList.remove('hidden');}
+</script>
+<div class="page hidden" id="p7">
+  <h1>Bachhaaa… 💍</h1>
+  <h2>Is Christmas, aur har Christmas ke baad bhi…<br>Will you be mine forever? ❤️</h2>
+  <div id="proposal">
+    <button onclick="sayYes()" style="padding:12px 30px;margin:10px;font-size:1.2em;border-radius:30px;border:none;background:#ffd700;color:#8b0000">YES 💖</button>
+    <button onclick="sayNo()" style="padding:12px 30px;margin:10px;font-size:1.2em;border-radius:30px;border:none;background:#fff;color:#8b0000">NO 🙈</button>
+  </div>
+  <div id="ring" class="hidden" style="font-size:90px;margin-top:20px">💍 Bachhaaa ❤️</div>
+</div>
+</body>
+</html>
